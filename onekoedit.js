@@ -71,7 +71,7 @@
   let idleAnimation = null;
   let idleAnimationFrame = 0;
 
-  const nekoSpeed = 120;
+  const nekoSpeed = 80;
   const spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],
@@ -254,7 +254,7 @@
     const diffY = nekoPosY - mousePosY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
-    if (distance < nekoSpeed || distance < 5) {
+    if (distance < nekoSpeed || distance < 40) {
       idle();
       return;
     }
@@ -265,7 +265,7 @@
     if (idleTime > 1) {
       setSprite("alert", 0);
       // count down after being alerted before moving
-      idleTime = Math.min(idleTime, 1);
+      idleTime = Math.min(idleTime, 5);
       idleTime -= 1;
       return;
     }
